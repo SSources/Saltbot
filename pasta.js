@@ -24,7 +24,7 @@ const date = require("date")
 client.on('ready', function () {
     console.log('First confirmation');
     for (flopped = 0; flopped < 69; flopped++) {
-       console.log(chalk.red("Connection to servers..."))
+       console.log(chalk.red("Connecting to servers..."))
     }
 });
 
@@ -41,23 +41,27 @@ client.on('ready', ()  => {
   console.clear()
   process.title = "ReNewSelf v1";
   client.user.setActivity(`ll`, {type: 4})
-    console.log("Selfclient démarré.")
+    console.log(chalk.greenBright("SelfClient démarré."))
 })
 client.on("message", async message => {
-    let prefix = flopping.prefix;
+    let prefix = config.prefix;
     let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
+    let command = messageArray[0];
     let args = messageArray.slice(1);
     let sender = message.author;
     const argsm = message.content.split(' ');
     const searchString = argsm.slice(1).join(' ');
     const url = argsm[1] ? argsm[1].replace(/<(.+)>/g, '$1') : '';
     var guild = message.guild;
+    let id = config.id;
 
 
 // GIFT //
 
+    
+  
 if(command === prefix + 'gift') {
+    if(message.author.id === id) {
     fs.readFile('accounts/nitrogen.txt', function(err, data) {
       if(err) throw err;
       data = data + '';
@@ -67,9 +71,57 @@ if(command === prefix + 'gift') {
       message.channel.send(`https://discord.gift/${random}`);
     
     })
-    
+}else{
+    console.log(chalk.blueBright("Quelqu'un a essayer d'utiliser vos commandes ! L'utilisateur en a été automatiquement empêché."));
+}
 }
 
+// STATUS COMMANDS //
+
+if(command === prefix + "listen"){
+    if(message.author.id === id) {
+    message.delete()
+
+    client.user.setActivity("" + args.join(" "), {type: "LISTENING"});
+    }else{
+        console.log(chalk.blueBright("Quelqu'un a essayer d'utiliser vos commandes ! L'utilisateur en a été automatiquement empêché."));
+    }
+}
+
+
+if(command === prefix + "watch"){
+    if(message.author.id === id) {
+    message.delete()
+
+    client.user.setActivity("" + args.join(" "), {type: "WATCHING"});
+    }else{
+        console.log(chalk.blueBright("Quelqu'un a essayer d'utiliser vos commandes ! L'utilisateur en a été automatiquement empêché."));
+    }
+}
+
+
+if(command === prefix + "play"){
+    if(message.author.id === id) {
+    message.delete()
+
+    client.user.setActivity("" + args.join(" "), {type: "PLAYING"});
+    }else{
+        console.log(chalk.blueBright("Quelqu'un a essayer d'utiliser vos commandes ! L'utilisateur en a été automatiquement empêché."));
+    }
+}
+
+
+if(command === prefix + "stream"){
+    if(message.author.id === id) {
+    message.delete()
+
+    client.user.setActivity("" + args.join(" "), {type: "STREAMING", url:"https://www.twitch.tv/monstercat"});
+    }else{
+        console.log(chalk.blueBright("Quelqu'un a essayer d'utiliser vos commandes ! L'utilisateur en a été automatiquement empêché."));
+    }
+    
+    
+}
 
 
 });
