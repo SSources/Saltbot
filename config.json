@@ -1,6 +1,6 @@
 {
-    "prefix":"!",
-    "token":"ODQ2NDEzNjU1MTQxNjQ2NDM3.YKvKrg.timeiStW79XUiXHHwZdq4WM0IxA",
-    "id":"846413655141646437",
+    "prefix":"user_prefix",
+    "token":"user_token",
+    "id":"user_id",
     "version":"1.00"
 }
