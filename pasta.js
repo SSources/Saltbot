@@ -34,9 +34,9 @@ client.on('ready', function () {
         details : "Oui",
         assets : {
         large_image : "512-em-vdrovkaa9unl",
-        large_text : "BalleOrange" // THIS WILL SHOW AS "Playing <Status>" from the outisde
+        large_text : "BalleOrange"
         },
-        buttons : [{label : "Steam" , url : "https://steamcommunity.com/id/BalleOrange/"},{label : "Youtube",url : "https://www.youtube.com/channel/UCuL_tVTpHcFRNHl7D1A4B2A"}]
+        buttons : [{label : config.button1 , url : config.button1link},{label : config.button2,url : config.button2link}]
         }
         })
         })

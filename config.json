@@ -1,4 +1,8 @@
 {
-    "prefix":";",
-    "token":"yourtoken"
+    "prefix":"yourprefix",
+    "token":"yourtoken",
+    "button1":"Text",
+    "button2":"Text",
+    "button1link":"link",
+    "button2link":"link2"
 }
