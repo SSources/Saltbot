@@ -1,6 +1,6 @@
 {
-    "prefix":"user_prefix",
-    "token":"user_token",
-    "id":"user_id",
-    "version":"1.00"
+    "prefix":"your-prefix",
+    "token":"your_token",
+    "id":"your_id",
+    "version":"1.01"
 }

