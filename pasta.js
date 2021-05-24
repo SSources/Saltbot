@@ -31,16 +31,16 @@ client.on('ready', function () {
         client.request('SET_ACTIVITY', {
         pid: process.pid,
         activity : {
-        details : "Oui",
+        details : config.details,
         assets : {
-        large_image : "512-em-vdrovkaa9unl",
-        large_text : "BalleOrange"
+        large_image : config.large_image,
+        large_text : config.large_text
         },
         buttons : [{label : config.button1 , url : config.button1link},{label : config.button2,url : config.button2link}]
         }
         })
         })
-        client.login({ clientId : config.token }).catch(console.error);
+        client.login({ clientId : config.appID }).catch(console.error);
     }
 });
 

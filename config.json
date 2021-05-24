@@ -1,8 +1,12 @@
 {
-    "prefix":"yourprefix",
-    "token":"yourtoken",
+    "prefix":"your_prefix",
+    "token":"your_token",
+    "appID":"app_id",
     "button1":"Text",
     "button2":"Text",
     "button1link":"link",
-    "button2link":"link2"
+    "button2link":"link2",
+    "large_image":"large_image_name",
+    "large_text":"large_text",
+    "details":"details"
 }
