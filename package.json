@@ -23,9 +23,11 @@
     "discord.js": "11.6",
     "figlet": "^1.5.0",
     "fs": "^0.0.1-security",
+    "https": "^1.0.0",
     "node-fetch": "^2.6.1",
     "process": "^0.11.10",
     "qrcode": "^1.4.4",
+    "request": "^2.88.2",
     "snekfetch": "^3.6.4",
     "superagent": "^6.1.0",
     "ws": "^6.2.1"

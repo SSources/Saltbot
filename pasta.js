@@ -40,7 +40,7 @@ client.on('error', (e) => {console.error(e)});
 client.on('ready', ()  => {
   console.clear()
   process.title = "ReNewSelf v1";
-  client.user.setActivity(`ll`, {type: 4})
+  client.user.setActivity(``, {type: "WATCHING"})
     console.log(chalk.greenBright("SelfClient démarré."))
 })
 client.on("message", async message => {
