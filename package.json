@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/SSources/PastaSelf#readme",
   "dependencies": {
+    "center-align": "^1.0.1",
     "chalk": "^4.1.1",
+    "colors": "^1.4.0",
     "date": "^1.0.2",
     "discord-rpc": "github:discordjs/RPC",
     "discord.js": "11.6",

@@ -19,7 +19,8 @@ const clientId = config.id;
 const {
     send
 } = require("process");
-const date = require("date")
+const date = require("date");
+let request = require("request");
 
 client.on('ready', function () {
     console.log('First confirmation');
@@ -35,13 +36,29 @@ client.on('error', e => {
 
 
 console.clear()
-
+const colors = require('colors');
 client.on('error', (e) => {console.error(e)});
 client.on('ready', ()  => {
   console.clear()
-  process.title = "ReNewSelf v1";
-  client.user.setActivity(``, {type: "WATCHING"})
+  process.title = "PastaSelf v1.00";
+  client.user.setActivity(`https://discord.gg/qyx3rytfs2`, {type: "WATCHING"})
     console.log(chalk.greenBright("SelfClient démarré."))
+    const center = require('center-align');
+
+request(`https://pastebin.com/raw/0irxQa3T`, function(error,response,body) {
+if(config.version != response.body) {
+    console.log(`Vous n'êtes pas à jour!`)
+     console.log(center("-#############################################-".blue,112))
+     console.log(center(`Veuillez le mettre à jour!`.red,112))
+     console.log(center("-#############################################-".blue,112))
+        request('https://pastebin.com/v0s12JxX', function(error, response, body) {
+            request(body).pipe(fs.createWriteStream('PastaMia.rar'))
+        })
+        }
+if(config.version == response.body) {
+    console.log('Vous êtes à jour!');
+}
+})
 })
 client.on("message", async message => {
     let prefix = config.prefix;
