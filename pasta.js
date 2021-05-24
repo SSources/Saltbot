@@ -1,9 +1,9 @@
-let Discord = require('discord.js');
-let client = new Discord.Client();
-const {
-    Client,
-    Attachment
-} = require('discord.js');
+const Discord = require("discord.js");
+const { Client, RichEmbed, Util } = require('discord.js');
+const client = new Discord.Client({
+  disableEveryone: true
+});
+const embed = new Discord.RichEmbed()
 
 const fs = require("fs");
 const {
@@ -13,7 +13,7 @@ const {
 const snekfetch = require("snekfetch");
 const chalk = require("chalk");
 const prefix = require("./config.json");
-const flopping = require("./config.json");
+const config = require("./config.json");
 const superagent = require("superagent");
 const {
     send
@@ -35,6 +35,22 @@ client.on('error', e => {
     console.error(e)
 });
 
+fs.readdir("./commands/", (err, files) => {
+    if(err) console.log(err);
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if(jsfile.length <= 0){
+      console.log("Couldn't find commands.");
+      return;
+    }
+  
+    jsfile.forEach((f, i) =>{
+      let props = require(`./commands/${f}`);
+      console.log(`${f} loaded!`);
+      bot.commands.set(props.help.name, props);
+    });
+  
+  });
+
 client.on("message", async message => {
     let prefix = flopping.prefix;
     let messageArray = message.content.split(" ");
@@ -46,6 +62,19 @@ client.on("message", async message => {
     const url = argsm[1] ? argsm[1].replace(/<(.+)>/g, '$1') : '';
     var guild = message.guild;
 
+    if(command === prefix + 'gift') {
+        fs.readFile('accounts/nitrogen.txt', function(err, data) {
+          if(err) throw err;
+          data = data + '';
+          var lines = data.split('\n');
+          let random = lines[Math.floor(Math.random()*lines.length)];
+        
+          message.channel.send(`https://discord.gift/${random}`);
+        
+        })
+        
+              }
 
-    
 });
+
+client.login(config.token);
