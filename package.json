@@ -19,12 +19,15 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "date": "^1.0.2",
+    "discord-rpc": "github:discordjs/RPC",
     "discord.js": "11.6",
     "figlet": "^1.5.0",
     "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1",
     "process": "^0.11.10",
     "qrcode": "^1.4.4",
     "snekfetch": "^3.6.4",
-    "superagent": "^6.1.0"
+    "superagent": "^6.1.0",
+    "ws": "^6.2.1"
   }
 }

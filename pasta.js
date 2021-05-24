@@ -15,6 +15,8 @@ const chalk = require("chalk");
 const prefix = require("./config.json");
 const config = require("./config.json");
 const superagent = require("superagent");
+const clientId = config.id;
+const scopes = ['rpc', 'rpc.api', 'messages.read'];
 const {
     send
 } = require("process");
@@ -23,11 +25,22 @@ const date = require("date")
 client.on('ready', function () {
     console.log('First confirmation');
     for (flopped = 0; flopped < 69; flopped++) {
-        client.user.setActivity("Pasta Box", {
-            type: "STREAMING",
-            url: "https://www.twitch.tv/enotishka18"
-        });
-        console.log(chalk.yellow("wohoooo selfbot ready!!!"));
+        var rpc = require("discord-rpc")
+        const client = new rpc.Client({ transport: 'ipc' })
+        client.on('ready', () => {
+        client.request('SET_ACTIVITY', {
+        pid: process.pid,
+        activity : {
+        details : "Oui",
+        assets : {
+        large_image : "512-em-vdrovkaa9unl",
+        large_text : "BalleOrange" // THIS WILL SHOW AS "Playing <Status>" from the outisde
+        },
+        buttons : [{label : "Steam" , url : "https://steamcommunity.com/id/BalleOrange/"},{label : "Youtube",url : "https://www.youtube.com/channel/UCuL_tVTpHcFRNHl7D1A4B2A"}]
+        }
+        })
+        })
+        client.login({ clientId : config.token }).catch(console.error);
     }
 });
 
@@ -73,7 +86,7 @@ client.on("message", async message => {
         
         })
         
-              }
+    }
 
 });
 
