@@ -1,0 +1,22 @@
+{
+  "name": "pastapizza",
+  "version": "69.420.666",
+  "description": "just the pasta",
+  "main": "pasta.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SSources/PastaSelf.git"
+  },
+  "author": "source",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SSources/PastaSelf/issues"
+  },
+  "homepage": "https://github.com/SSources/PastaSelf#readme",
+  "dependencies": {
+    "discord.js": "11.6"
+  }
+}
