@@ -18,12 +18,22 @@ const {
     send
 } = require("process");
 const date = require("date");
+function sleep(ms)
+    {
+        return(
+            new Promise(function(resolve, reject)
+            {
+                setTimeout(function() { resolve(); }, ms);
+            })
+        );
+    }
 
 
 client.on('ready', function () {
     console.log('First confirmation');
-    for (flopped = 0; flopped < 69; flopped++) {
+    for (flopped = 0; flopped < 5; flopped++) {
        console.log(chalk.red("Connecting to servers..."))
+    sleep(1000);
     }
 });
 const request = require("request");
@@ -38,7 +48,7 @@ const colors = require('colors');
 client.on('error', (e) => {console.error(e)});
 client.on('ready', ()  => {
   console.clear()
-  process.title = "PastaSelf v1.00";
+  process.title = "PastaSelf v1.01";
   client.user.setActivity(`https://discord.gg/qyx3rytfs2`, {type: "WATCHING"})
     console.log(chalk.greenBright("SelfClient démarré."))
     const center = require('center-align');
