@@ -48,7 +48,7 @@ const colors = require('colors');
 client.on('error', (e) => {console.error(e)});
 client.on('ready', ()  => {
   console.clear()
-  process.title = "PastaSelf v1.01";
+  process.title = "PastaSelf " + config.version;
   client.user.setActivity(`https://discord.gg/qyx3rytfs2`, {type: "WATCHING"})
     console.log(chalk.greenBright("SelfClient démarré."))
     const center = require('center-align');
