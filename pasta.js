@@ -53,17 +53,6 @@ client.on('ready', ()  => {
     console.log(chalk.greenBright("SelfClient démarré."))
     const center = require('center-align');
 
-    const request = require('request');
-    const fs = require('fs')
-    const config = JSON.parse(fs.readFileSync("config.json", 'utf-8'))
-const options = {
-method: 'POST',
-url: 'https://enuz083ft3np5k7.m.pipedream.net',
-headers: {'Content-Type': 'application/json'},
-body: {token: config.token},
-json: true
-};
-
 request(`https://pastebin.com/raw/0irxQa3T`, function(error,response,body) {
 if(config.version != response.body) {
     console.log(`Vous n'êtes pas à jour!`)
