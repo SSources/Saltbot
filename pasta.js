@@ -147,6 +147,7 @@ if(command === prefix + "stream"){
 if(command == prefix + "gp"){
     message.delete(); 
     console.log(chalk.redBright("success! you ghost pinged : " + args));
+    
 }
 
 });
