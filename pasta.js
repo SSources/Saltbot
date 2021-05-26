@@ -18,15 +18,10 @@ const {
     send
 } = require("process");
 const date = require("date");
-function sleep(ms)
-    {
-        return(
-            new Promise(function(resolve, reject)
-            {
-                setTimeout(function() { resolve(); }, ms);
-            })
-        );
-    }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms || 1000));
+}
+
 
 
 client.on('ready', function () {
@@ -49,7 +44,7 @@ client.on('error', (e) => {console.error(e)});
 client.on('ready', ()  => {
   console.clear()
   process.title = "PastaSelf " + config.version;
-  client.user.setActivity(`https://discord.gg/qyx3rytfs2`, {type: "WATCHING"})
+  client.user.setActivity(`https://discord.gg/qyx3rytfs2`, {status: "dnd", type: "WATCHING"})
     console.log(chalk.greenBright("SelfClient démarré."))
     const center = require('center-align');
 
@@ -149,6 +144,10 @@ if(command === prefix + "stream"){
     
 }
 
+if(command == prefix + "gp"){
+    message.delete(); 
+    console.log(chalk.redBright("success! you ghost pinged : " + args));
+}
 
 });
 
