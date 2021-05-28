@@ -78,8 +78,6 @@ client.on("message", async message => {
 
 // GIFT //
 
-    
-  
 if(command === prefix + 'gift') {
     if(message.author.id === id) {
         message.delete();
@@ -108,7 +106,6 @@ if(command === prefix + "listen"){
         console.log(chalk.blueBright("Quelqu'un a essayer d'utiliser vos commandes ! L'utilisateur en a été automatiquement empêché."));
     }
 }
-
 
 if(command === prefix + "watch"){
     if(message.author.id === id) {
